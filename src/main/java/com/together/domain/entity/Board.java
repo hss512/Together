@@ -4,6 +4,8 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -33,6 +35,9 @@ public class Board extends BaseEntity{
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private Category category;
+
+    @OneToMany(mappedBy = "board")
+    private List<Reply> replyList = new ArrayList<>();
 
     public void updateBoard(String title, String content) {
         this.title = title;

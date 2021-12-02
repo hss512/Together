@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Member</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<h1>Member</h1><br/>
+<form action="/member" type="post">
+	<input type="text" id="username"/>
+	<input type="text" id="password"/>
+	<input type="text" id="nickname"/>
+	<button type="submit" id="btn">전송</button>
+</form>
+</body>
+<script>
+    $("#btn").on("click", function (e){
+        e.preventDefault();
+        console.log("member")
+        let username = $("#username").val();
+        let password = $("#password").val();
+        let nickname = $("#nickname").val();
+
+        let data = {
+            "username": username,
+            "password": password,
+            "nickname": nickname
+        }
+
+        $.ajax({
+            type: "post",
+            url: "/member",
+            dataType: "json",
+	        contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(data)
+        }).done(data=>{
+            console.log(data)
+        }).fail(error=>{
+            console.log(error)
+	        console.log(username)
+	        console.log(password)
+	        console.log(nickname)
+        })
+
+    })
+</script>
+</html>

@@ -26,4 +26,8 @@ public class CategoryService {
     public void updateCategory(Category category, String newCategoryName){
         category.updateCategoryName(newCategoryName);
     }
+
+    public Category findByCategoryName(String category) {
+        return repository.findByCategoryName(category);
+    }
 }

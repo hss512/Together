@@ -1,5 +1,6 @@
 package com.together.service;
 
+import com.together.domain.entity.Member;
 import com.together.dto.request.CreateMemberRequest;
 import com.together.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
@@ -32,4 +33,7 @@ public class MemberService {
     }
 
 
+    public Member findById(long l) {
+        return repository.findById(l).get();
+    }
 }

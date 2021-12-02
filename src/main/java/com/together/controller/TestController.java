@@ -1,7 +1,11 @@
 package com.together.controller;
 
 import com.together.auth.email.EmailService;
+import com.together.domain.entity.Category;
+import com.together.domain.entity.Member;
+import com.together.dto.request.CreateBoardRequest;
 import com.together.dto.request.CreateCategoryRequest;
+import com.together.dto.request.CreateMemberRequest;
 import com.together.service.BoardService;
 import com.together.service.CategoryService;
 import com.together.service.MemberService;
@@ -22,7 +26,27 @@ public class TestController {
 
     @GetMapping("/")
     public String test(){
-        return "/test";
+        return "/index";
+    }
+
+    @GetMapping("/test/email")
+    public String test_email(){
+        return "/test/email";
+    }
+
+    @GetMapping("/test/category")
+    public String test_category(){
+        return "/test/category";
+    }
+
+    @GetMapping("/test/member")
+    public String test_member(){
+        return "/test/member";
+    }
+
+    @GetMapping("/test/board")
+    public String test_board(){
+        return "/test/board";
     }
 
     @PostMapping("/category")
@@ -30,7 +54,30 @@ public class TestController {
         log.info("category post 호출");
         categoryService.createCategory(categoryName);
 
-        return "redirect:/";
+        return "redirect:/test/category";
+    }
+
+    @PostMapping("/member")
+    public String createMember(@RequestBody CreateMemberRequest memberRequest){
+
+        memberService.createMember(memberRequest);
+
+        return "redirect:/test/member";
+    }
+
+    @PostMapping("/{category}/board")
+    public String createBoard(@PathVariable String category, @RequestBody CreateBoardRequest boardRequest){
+
+        Member member = memberService.findById(1L);
+
+        Category findCategory = categoryService.findByCategoryName(category);
+
+        log.info("boardRequest={}", boardRequest.toString());
+        log.info("category_name={}", category);
+
+        boardService.createBoard(boardRequest, member, findCategory);
+
+        return "redirect:/test/board";
     }
 
     @PostMapping("/mail")

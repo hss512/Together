@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Board</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<h1>Board_test</h1><br/>
+<form action="/board" type="post">
+	<select name="category" id="category-select">
+		<option value="">--Please choose an option--</option>
+		<option value="개발">개발</option>
+		<option value="연인">연인</option>
+		<option value="친구">친구</option>
+	</select>
+	<br/>
+	<input type="text" id="title"/><br/>
+	<input type="text" id="content"/>
+	<button type="submit" id="btn">전송</button>
+</form>
+</body>
+<script>
+    $("#btn").on("click", function (e){
+        e.preventDefault();
+        console.log("board")
+	    let category = $("#category-select").val();
+        let title = $("#title").val();
+        let content = $("#content").val();
+
+        let data = {
+            "title": title,
+            "content": content
+        }
+
+        console.log(category)
+
+        $.ajax({
+            type: "post",
+            url: "/" + category + "/board",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(data)
+        }).done(data=>{
+            console.log(data)
+        }).fail(error=>{
+            console.log(error)
+        })
+
+    })
+</script>
+</html>

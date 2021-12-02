@@ -1,5 +1,6 @@
 package com.together.dto.request;
 
+import com.together.domain.MemberGrade;
 import com.together.domain.RoleType;
 import com.together.domain.entity.Member;
 import lombok.AllArgsConstructor;
@@ -33,6 +34,7 @@ public class CreateMemberRequest {
                 .password(this.password)
                 .nickname(this.nickname)
                 .role(RoleType.ROLE_USER)
+                .grade(MemberGrade.NONE)
                 .build();
     }
 }
