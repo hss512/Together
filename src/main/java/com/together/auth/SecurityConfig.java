@@ -1,4 +1,3 @@
-/*
 package com.together.auth;
 
 import org.springframework.context.annotation.Bean;
@@ -28,12 +27,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .formLogin()
-                .loginPage("/auth/signin")
-                .loginProcessingUrl("/auth/signin")
+                .loginPage("/signin")
+                .loginProcessingUrl("/signin")
                 .defaultSuccessUrl("/")
                 .failureHandler((request, response, exception) -> {
                     response.sendRedirect("/auth/loginError");
                 });
     }
 }
-*/

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Together</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<link rel="stylesheet" href="/css/footer.css">
+	<link rel="stylesheet" href="/css/index.css">
+
+	<!-- Fontawesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+
+	<!-- Fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="header">
+	<div class="container">
+		<!--<a href="/" class="logo">
+			<img src="" alt="">
+		</a>
+
+		<nav class="navi">
+			<ul class="navi-list">
+
+			</ul>
+		</nav>-->
+	</div>
+	<div class="category">
+		<nav class="navi">
+			<ul class="navi-list">
+				<li class="navi-item"><a href="/">
+					<div class="category-name">가족</div>
+				</a></li>
+				<li class="navi-item"><a href="/">
+					<div class="category-name">친구</div>
+				</a></li>
+				<li class="navi-item"><a href="/">
+					<div class="category-name">연인</div>
+				</a></li>
+				<li class="navi-item"><a href="/">
+					<div class="category-name">직장동료</div>
+				</a></li>
+				<li class="navi-item"><a href="/">
+					<div class="category-name">진로</div>
+				</a></li>
+				<li class="navi-item"><a href="/">
+					<div class="category-name">인생(?)</div>
+				</a></li>
+				<li class="navi-item"><a href="/">
+					<div class="category-name">기타 고민</div>
+				</a></li>
+			</ul>
+		</nav>
+	</div>
+</header>
+<main class="main">
+	<section class="container">
+		<div class="article_list">
+			<div class="category_article_list">
+				<div class="category_article">
+					<span class="category_name">실시간 고민 공감</span>
+				</div>
+				<div class="category_article">
+					<span class="category_name">가족</span>
+				</div>
+				<div class="category_article">
+					<span class="category_name">친구</span>
+				</div>
+				<div class="category_article">
+					<span class="category_name">연인</span>
+				</div>
+				<div class="category_article">
+					<span class="category_name">직장동료</span>
+				</div>
+				<div class="category_article">
+					<span class="category_name">진로</span>
+				</div>
+				<div class="category_article">
+					<span class="category_name">인생</span>
+				</div>
+				<div class="category_article">
+					<span class="category_name">기타 고민</span>
+				</div>
+			</div>
+		</div>
+	</section>
+</main>
+</body>
+<div th:replace="/layout/footer :: footer"></div>
+</html>
